@@ -10,10 +10,17 @@ import com.opencsv.bean.StatefulBeanToCsvBuilder;
 import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
 
 public class CSVUtil<T> {
+	
+	/**
+	 * データクラスに設定したヘッダーの取得
+	 * @param bean データクラス 
+	 * @param type データクラスの型
+	 * @return ヘッダー名
+	 * @throws CsvRequiredFieldEmptyException
+	 */
 	public  String[] getHeaderField(T bean, Class<? extends T> type) throws CsvRequiredFieldEmptyException {
 		CustomMappingStrategy<T> mappingStrategy = new CustomMappingStrategy<>();
-        mappingStrategy.setType(type);
-        
+        mappingStrategy.setType(type);      
         return mappingStrategy.generateHeader(bean);
 	}
 	

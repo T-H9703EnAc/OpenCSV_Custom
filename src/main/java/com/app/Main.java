@@ -21,12 +21,14 @@ public class Main {
 
 		CSVData1Bean bean = CSVData1Bean
 				.builder()
-				.areaNo("001")
-				.kyotenId("001")
+				.area("001")
+				.id("001")
 				.nenTukiHi("20220101")
-				.vData(Arrays.asList(array))
-				.array(array)
+				.listData(Arrays.asList(array))
+				.arrayData(array)
 				.build();
+		
+		// headerの内容を表示
 		System.out.println(Arrays.toString(util.getHeaderField(bean, CSVData1Bean.class)));
 
 		String path = ".\\src\\main\\resources\\csv\\result.csv";
