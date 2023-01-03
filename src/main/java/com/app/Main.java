@@ -12,15 +12,14 @@ public class Main {
 	public static void main(String[] args) throws Exception {
 
 		CSVUtil<CSVData1Bean> util = new CSVUtil<CSVData1Bean>();
-		
+
 		String[] array = new String[3];
-		
-		for(int i=0; i<array.length; i++) {
+
+		for (int i = 0; i < array.length; i++) {
 			array[i] = Integer.toString(i);
 		}
-		
-		
-		CSVData1Bean bean =  CSVData1Bean
+
+		CSVData1Bean bean = CSVData1Bean
 				.builder()
 				.areaNo("001")
 				.kyotenId("001")
@@ -29,15 +28,17 @@ public class Main {
 				.array(array)
 				.build();
 		System.out.println(Arrays.toString(util.getHeaderField(bean, CSVData1Bean.class)));
-		
+
 		String path = ".\\src\\main\\resources\\csv\\result.csv";
-		
-		List<CSVData1Bean> list = new ArrayList<CSVData1Bean>() {{add(bean);}};
-		
+
+		List<CSVData1Bean> list = new ArrayList<CSVData1Bean>() {
+			{
+				add(bean);
+			}
+		};
+
 		util.writeCSV(list, CSVData1Bean.class, path);
 
-
-		
 	}
 
 }
